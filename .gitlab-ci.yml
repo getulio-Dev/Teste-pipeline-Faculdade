@@ -1,0 +1,28 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  image: node:18
+  script:
+    - echo "Instalando dependências..."
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+test_job:
+  stage: test
+  image: node:18
+  script:
+    - echo "Executando testes..."
+    - npm test
+
+deploy_job:
+  stage: deploy
+  image: node:18
+  script:
+    - echo "Deploy simulado - aplicação pronta para produção!"
+
